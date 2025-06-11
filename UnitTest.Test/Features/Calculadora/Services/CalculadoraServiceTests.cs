@@ -18,7 +18,7 @@ namespace UnitTest.Test.Features.Calculadora.Services
         }
 
         [Fact]
-        public void Dividir_StateUnderTest_ExpectedBehavior()
+        public void Calculadora_Dividir_DivisaoDosNumeros()
         {
             // Arrange
             var service = this.CreateService();
@@ -35,7 +35,7 @@ namespace UnitTest.Test.Features.Calculadora.Services
         }
 
         [Fact]
-        public void Multiplicar_StateUnderTest_ExpectedBehavior()
+        public void Calculadora_Multiplicar_MultiplicacaoDosNumeros()
         {
             // Arrange
             var service = this.CreateService();
@@ -52,7 +52,7 @@ namespace UnitTest.Test.Features.Calculadora.Services
         }
 
         [Fact]
-        public void Somar_StateUnderTest_ExpectedBehavior()
+        public void Calculadora_Somar_SomaDosNumeros()
         {
             // Arrange
             var service = this.CreateService();
@@ -69,7 +69,7 @@ namespace UnitTest.Test.Features.Calculadora.Services
         }
 
         [Fact]
-        public void Subtrair_StateUnderTest_ExpectedBehavior()
+        public void Calculadora_Subtrair_SubitracaoDosNumeros()
         {
             // Arrange
             var service = this.CreateService();
