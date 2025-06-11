@@ -1,8 +1,11 @@
-﻿using UnitTestwithXUnit.Features.Calculadora.Contracts;
+﻿using System.Runtime.CompilerServices;
+using UnitTestwithXUnit.Features.Calculadora.Contracts;
+
+[assembly: InternalsVisibleTo("UnitTest.Test")]
 
 namespace UnitTestwithXUnit.Features.Calculadora.Services
 {
-    public class CalculadoraService : ICalculadora
+    internal class CalculadoraService : ICalculadora
     {
         public double Dividir(double n1, double n2)
         {

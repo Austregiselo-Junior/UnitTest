@@ -3,7 +3,7 @@ using UnitTestwithXUnit.Features.Calculadora.Services;
 
 namespace UnitTest.Test.Features.Calculadora.Services
 {
-    public class CalculadoraServiceTests
+    public class CalculadoraServiceTests : IDisposable
     {
         private MockRepository _mockRepository;
 
@@ -32,7 +32,6 @@ namespace UnitTest.Test.Features.Calculadora.Services
 
             // Assert
             Assert.Equal(2, result);
-            this._mockRepository.VerifyAll();
         }
 
         [Fact]
@@ -50,7 +49,6 @@ namespace UnitTest.Test.Features.Calculadora.Services
 
             // Assert
             Assert.Equal(8, result);
-            this._mockRepository.VerifyAll();
         }
 
         [Fact]
@@ -68,7 +66,6 @@ namespace UnitTest.Test.Features.Calculadora.Services
 
             // Assert
             Assert.Equal(6, result);
-            this._mockRepository.VerifyAll();
         }
 
         [Fact]
@@ -86,7 +83,11 @@ namespace UnitTest.Test.Features.Calculadora.Services
 
             // Assert
             Assert.Equal(2, result);
-            this._mockRepository.VerifyAll();
+        }
+
+        public void Dispose()
+        {
+            _mockRepository.VerifyAll();
         }
     }
 }
