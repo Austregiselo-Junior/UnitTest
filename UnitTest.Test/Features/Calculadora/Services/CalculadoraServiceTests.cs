@@ -1,6 +1,6 @@
 ﻿using Moq;
+using UnitTestwithXUnit;
 using UnitTestwithXUnit.Features.Calculadora.Contracts;
-using UnitTestwithXUnit.Features.Calculadora.Services;
 
 namespace UnitTest.Test.Features.Calculadora.Services
 {
@@ -15,9 +15,9 @@ namespace UnitTest.Test.Features.Calculadora.Services
             _mockICalculadora = _mockRepository.Create<ICalculadora>();
         }
 
-        private CalculadoraService CreateService()
+        private User CreateService()
         {
-            return new CalculadoraService();
+            return new User(_mockICalculadora.Object);
         }
 
         [Fact]
@@ -27,10 +27,11 @@ namespace UnitTest.Test.Features.Calculadora.Services
             var service = CreateService();
             double n1 = 8;
             double n2 = 4;
-            _mockICalculadora.Setup(x => x.Dividir(n1, n2)).Returns(2); // Mock o teste para retornar 2
+            _mockICalculadora.Setup(x => x.Dividir(n1, n2)).Returns(2); // Mocka o serviço para retornar 2
 
             // Act
-            var result = service.Dividir(n1, n2); // Chama o método Dividir do serviço
+            var result = service.Divisao(n1, n2); // Chama o método a ser testado através do mock
+
 
             // Assert
             Assert.Equal(2, result); // Verifica se o resultado é igual a 2
@@ -46,7 +47,7 @@ namespace UnitTest.Test.Features.Calculadora.Services
             _mockICalculadora.Setup(x => x.Multiplicar(n1, n2)).Returns(8);
 
             // Act
-            var result = service.Multiplicar(
+            var result = service.Multiplicacao(
                 n1,
                 n2);
 
@@ -64,7 +65,7 @@ namespace UnitTest.Test.Features.Calculadora.Services
             _mockICalculadora.Setup(x => x.Somar(n1, n2)).Returns(6);
 
             // Act
-            var result = service.Somar(
+            var result = service.Somatorio(
                 n1,
                 n2);
 
@@ -82,7 +83,7 @@ namespace UnitTest.Test.Features.Calculadora.Services
             _mockICalculadora.Setup(x => x.Subtrair(n1, n2)).Returns(2);
 
             // Act
-            var result = service.Subtrair(
+            var result = service.Subtracao(
                 n1,
                 n2);
 
