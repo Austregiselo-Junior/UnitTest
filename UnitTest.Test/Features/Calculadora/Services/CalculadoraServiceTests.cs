@@ -15,7 +15,7 @@ namespace UnitTest.Test.Features.Calculadora.Services
             _mockICalculadora = _mockRepository.Create<ICalculadora>();
         }
 
-        private User CreateService()
+        private User CreateUser()
         {
             return new User(_mockICalculadora.Object);
         }
@@ -24,7 +24,7 @@ namespace UnitTest.Test.Features.Calculadora.Services
         public void Calculadora_Dividir_DivisaoDosNumeros()
         {
             // Arrange
-            var service = CreateService();
+            var service = CreateUser();
             double n1 = 8;
             double n2 = 4;
             _mockICalculadora.Setup(x => x.Dividir(n1, n2)).Returns(2); // Mocka o serviço para retornar 2
@@ -41,7 +41,7 @@ namespace UnitTest.Test.Features.Calculadora.Services
         public void Calculadora_Multiplicar_MultiplicacaoDosNumeros()
         {
             // Arrange
-            var service = CreateService();
+            var service = CreateUser();
             double n1 = 2;
             double n2 = 4;
             _mockICalculadora.Setup(x => x.Multiplicar(n1, n2)).Returns(8);
@@ -59,7 +59,7 @@ namespace UnitTest.Test.Features.Calculadora.Services
         public void Calculadora_Somar_SomaDosNumeros()
         {
             // Arrange
-            var service = this.CreateService();
+            var service = this.CreateUser();
             double n1 = 2;
             double n2 = 4;
             _mockICalculadora.Setup(x => x.Somar(n1, n2)).Returns(6);
@@ -77,7 +77,7 @@ namespace UnitTest.Test.Features.Calculadora.Services
         public void Calculadora_Subtrair_SubitracaoDosNumeros()
         {
             // Arrange
-            var service = this.CreateService();
+            var service = this.CreateUser();
             double n1 = 6;
             double n2 = 4;
             _mockICalculadora.Setup(x => x.Subtrair(n1, n2)).Returns(2);
